@@ -1,0 +1,7 @@
+1) In the Bank.kt, i have not defined any getter because, I've used "val" keyword for this, so kotlin will
+generate default getter for you. and if you're using var than kotlin will generate auto setter for you.
+
+2) Data class automatically  have equals, hashcode and toString function. So, don't need to mention again.
+
+3) In the architecture diagram, we are following bottom up approach. i.e. first data layer, then data source,
+ then service layer, then web layer.
