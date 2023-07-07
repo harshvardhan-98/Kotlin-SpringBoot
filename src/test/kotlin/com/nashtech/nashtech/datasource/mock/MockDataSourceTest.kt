@@ -1,6 +1,6 @@
 package com.nashtech.nashtech.datasource.mock
 
-import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
 
 import org.junit.jupiter.api.Test
 
@@ -13,10 +13,17 @@ internal class MockDataSourceTest{
         //given
 
         //when
-        val bank = mockDataSource.getBanks()
+        val bank = mockDataSource.retrieveBank()
 
         //then
-        Assertions.assertThat(bank).isNotEmpty()
-
+        assertThat(bank.size).isGreaterThanOrEqualTo(3)
     }
+
+    @Test
+    fun shouldProvideSomeMockData(){
+        val bank = mockDataSource.retrieveBank()
+        assertThat(bank).allMatch{it.accountNumber.isNotEmpty()}
+        assertThat(bank).allMatch{it.trust != 0.0}
+    }
+
 }
