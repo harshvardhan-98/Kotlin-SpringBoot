@@ -13,7 +13,7 @@ internal class MockDataSourceTest{
         //given
 
         //when
-        val bank = mockDataSource.retrieveBank()
+        val bank = mockDataSource.retrieveBanks()
 
         //then
         assertThat(bank.size).isGreaterThanOrEqualTo(3)
@@ -21,7 +21,7 @@ internal class MockDataSourceTest{
 
     @Test
     fun shouldProvideSomeMockData(){
-        val bank = mockDataSource.retrieveBank()
+        val bank = mockDataSource.retrieveBanks()
         assertThat(bank).allMatch{it.accountNumber.isNotEmpty()}
         assertThat(bank).allMatch{it.trust != 0.0}
     }
